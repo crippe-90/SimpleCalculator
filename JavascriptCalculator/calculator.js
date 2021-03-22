@@ -95,11 +95,13 @@ buttonEquals.addEventListener("click", function(event){
   equals();
 })
 
+//Reseting screen when pressing operation
 function resetScreen(){
   screenValue = '0';
   addToScreen('0');
 }
 
+//Function for handeling the logic with operations
 function equals(){
   if(operation=='addition'){
     value += operand1 + operand2;
@@ -151,8 +153,9 @@ function equals(){
     setScreen();
   }
 }
-
+//printing the value
 function setScreen(){
   document.getElementById("screen").value = value.toString();
 }
+//Start with 0.
 addToScreen('0');
