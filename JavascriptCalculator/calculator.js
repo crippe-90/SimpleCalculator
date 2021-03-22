@@ -1,4 +1,8 @@
+//author: Christoffer Norell
 
+
+
+//For the buttons
 var buttons = Array();
 var numberValues = ['0','1','2','3','4','5','6','7','8','9','.']
 var buttonClear = document.getElementById('C');
@@ -9,12 +13,14 @@ var buttonDivision = document.getElementById('/');
 var buttonEquals = document.getElementById('=');
 var buttonModulo = document.getElementById('mod')
 
+//For logic
 var value = 0.0;
 var operand1 = 0.0;
 var operand2 = 0.0;
 var screenValue = '0';
 var operation = '';
 
+//Function responsible for writing the number to the screen.
 function addToScreen(char){
   if(screenValue=='0'){
     screenValue = char;
@@ -33,6 +39,7 @@ function addToScreen(char){
 
 }
 
+//Connecting the number buttons.
 for(var i=0; i<11; i++){
   buttons[i] = document.getElementById(numberValues[i]);
   buttons[i].addEventListener("click", function(event){
@@ -41,12 +48,13 @@ for(var i=0; i<11; i++){
   });
 }
 
+//Clear button
 buttonClear.addEventListener("click", function(){
   resetScreen();
   value = 0.0;
 });
 
-
+//Addition button
 buttonAddition.addEventListener("click", function(event){
   operation = 'addition';
   if(operand2!=0){
@@ -58,27 +66,31 @@ buttonAddition.addEventListener("click", function(event){
 
 });
 
+//Subtraction button
 buttonSubtraction.addEventListener("click", function(event){
   operation = 'subtraction';
   resetScreen();
 });
 
+//Multiplication button
 buttonMultiplication.addEventListener("click", function(event){
   operation = 'multiplication';
   resetScreen();
 });
 
+//Division button
 buttonDivision.addEventListener("click", function(event){
   operation = 'division';
   resetScreen();
 });
 
+//Modulo button
 buttonModulo.addEventListener("click", function(event){
   operation = 'modulo';
   resetScreen();
 })
 
-
+//Equals button
 buttonEquals.addEventListener("click", function(event){
   equals();
 })
